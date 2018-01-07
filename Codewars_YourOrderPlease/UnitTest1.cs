@@ -9,14 +9,22 @@ namespace Codewars_YourOrderPlease
         [TestMethod]
         public void Find_Input_1andEmpty_Should_Be_Empty()
         {
-            Assert.AreEqual(string.Empty, Kata.Find(new string[]{string.Empty}, 1));
+            Assert.AreEqual(string.Empty, Kata.Find(new string[] { string.Empty }, 1));
         }
+
+        [TestMethod]
+        public void Find_Input_1and1_Should_Be_Empty()
+        {
+            Assert.AreEqual("1", Kata.Find(new string[] { "1" }, 1));
+        }
+
     }
 
     public class Kata
     {
         public static string Find(string[] s, int n)
         {
+
             return string.Empty;
         }
     }
