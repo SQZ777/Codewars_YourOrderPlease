@@ -17,7 +17,7 @@ namespace Codewars_YourOrderPlease
     {
         public static string Find(string s, int n)
         {
-            throw new NotImplementedException();
+            return string.Empty;
         }
     }
 }
