@@ -1,7 +1,5 @@
-using System;
+using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Metadata.Ecma335;
-using System.Security.Cryptography.X509Certificates;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Codewars_YourOrderPlease
@@ -24,7 +22,7 @@ namespace Codewars_YourOrderPlease
         [TestMethod]
         public void Find_Input_2andIm2Hi1DZ3()
         {
-           Assert.AreEqual("Im2", Kata.Find(new string[] { "Im2", "Hi1", "DZ3" }, 2));
+            Assert.AreEqual("Im2", Kata.Find(new string[] { "Im2", "Hi1", "DZ3" }, 2));
         }
 
         [TestMethod]
@@ -56,7 +54,13 @@ namespace Codewars_YourOrderPlease
 
         public static string Order(string str)
         {
-            throw new NotImplementedException();
+            var splitted = str.Split();
+            var result = new List<string>();
+            for (int i = 1; i <= splitted.Length; i++)
+            {
+                result.Add(Find(splitted, i) ?? string.Empty);
+            }
+            return string.Join(" ", result);
         }
     }
 }
