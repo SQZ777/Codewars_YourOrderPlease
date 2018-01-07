@@ -1,4 +1,7 @@
 using System;
+using System.Linq;
+using System.Reflection.Metadata.Ecma335;
+using System.Security.Cryptography.X509Certificates;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Codewars_YourOrderPlease
@@ -18,14 +21,42 @@ namespace Codewars_YourOrderPlease
             Assert.AreEqual("1", Kata.Find(new string[] { "1" }, 1));
         }
 
+        [TestMethod]
+        public void Find_Input_2andIm2Hi1DZ3()
+        {
+           Assert.AreEqual("Im2", Kata.Find(new string[] { "Im2", "Hi1", "DZ3" }, 2));
+        }
+
+        [TestMethod]
+        public void Find_Input_1andIm2Hi1DZ3()
+        {
+            Assert.AreEqual("Hi1", Kata.Find(new string[] { "Im2", "Hi1", "DZ3" }, 1));
+        }
+
+        [TestMethod]
+        public void Find_Input_3andIm2Hi1DZ3()
+        {
+            Assert.AreEqual("DZ3", Kata.Find(new string[] { "Im2", "Hi1", "DZ3" }, 3));
+        }
+
+        [TestMethod]
+        public void Input_Im2Hi1DZ3_Should_Be_Hi1Im2DZ3()
+        {
+            Assert.AreEqual("Hi1 Im2 DZ3", Kata.Order("Im2 Hi1 DZ3"));
+        }
+
     }
 
     public class Kata
     {
-        public static string Find(string[] s, int n)
+        public static string Find(string[] strs, int n)
         {
+            return strs.FirstOrDefault(x => x.Contains(n.ToString())) ?? string.Empty;
+        }
 
-            return string.Empty;
+        public static string Order(string str)
+        {
+            throw new NotImplementedException();
         }
     }
 }
